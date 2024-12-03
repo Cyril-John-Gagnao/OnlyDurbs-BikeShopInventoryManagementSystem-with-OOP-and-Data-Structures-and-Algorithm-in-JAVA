@@ -43,9 +43,8 @@ public class Payment {
     }
 
     // Method to display payment details
-    public void displayPaymentInfo() {
-        System.out.println("Payment Details:");
-        System.out.println("Amount: $" + paymentAmount);
+    public void displayPaymentInformation() {
+        System.out.println("Payment Amount: $" + paymentAmount);
         System.out.println("Payment Method: " + paymentMethod);
         System.out.println("Payment Date: " + paymentDate);
     }
@@ -53,11 +52,11 @@ public class Payment {
     // Method to process the payment 
     public boolean processPayment() {
         System.out.println("-------------------------------------------------------------");
-        System.out.println("Processing payment of $" + paymentAmount + " through " + paymentMethod);
+        System.out.println("Processing payment amount of $" + paymentAmount + " through " + paymentMethod);
         return true;  
     }
 
-    // Method to calculate the change
+   
     public double calculateChange(double bikePrice) {
         if (paymentAmount >= bikePrice) {
             double change = paymentAmount - bikePrice;
@@ -68,15 +67,15 @@ public class Payment {
         }
     }
 
-    // Method to calculate total price for a list of bikes
-    public static double calculateTotalPrice(LinkedList<Bike> bikesToSell) {
+    
+    public static double calculateTotalPrice(LinkedList<Bike> bikesToSell, LinkedList<Integer> quantitiesToSell) {
         double totalPrice = 0;
-        for (Bike bike : bikesToSell) {
-            totalPrice += bike.getPrice();
+        for (int i = 0; i < bikesToSell.size(); i++) {
+            Bike bike = bikesToSell.get(i);
+            int quantity = quantitiesToSell.get(i);
+            totalPrice += bike.getPrice() * quantity; // Multiply price by quantity
         }
         return totalPrice;
     }
-
       
 }
-

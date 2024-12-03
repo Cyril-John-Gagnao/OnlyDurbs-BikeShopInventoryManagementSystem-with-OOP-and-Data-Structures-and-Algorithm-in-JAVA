@@ -33,7 +33,7 @@ public class Buyer {
     }
 
 
-    // Method to display all orders of the buyer
+    /*// Method to display all orders of the buyer
     public void displayOrders() {
         if (orders.isEmpty()) {
             System.out.println(firstName + " " + lastName + " has not placed any orders.");
@@ -43,7 +43,7 @@ public class Buyer {
                 order.displayOrderDetails();  
             }
         }
-    }
+    }*/
 
   
 }
