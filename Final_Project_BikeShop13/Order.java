@@ -7,13 +7,12 @@ public class Order {
     private Buyer buyer;   // Many orders to 1 buyer
     private LinkedList<Bike> bikes;  // Many bikes to many orders (using LinkedList)
     private Payment payment;   // 1 payment per order
-
     
     public Order(String orderId, Buyer buyer, LinkedList<Bike> bikes, Payment payment) {
         this.orderId = orderId;
         this.buyer = buyer;
         this.bikes = bikes;
-        this.payment = payment;
+        this.payment = payment;    
     }
 
    
@@ -53,34 +52,52 @@ public class Order {
     public void displayOrderDetails() {
         System.out.println("Order ID: " + this.orderId);
         System.out.println("Buyer: " + this.buyer.getFirstName() + " " + this.buyer.getLastName());
-        System.out.println("Bikes in the Order:");
-        for (Bike bike : bikes) {
-            bike.bikeDisplay();  // Display details of each bike
-        }
-        payment.displayPaymentInfo(); 
     }
 
-        // Method to generate and display the receipt
-    public void generateReceipt() {
+    public void generateReceipt(LinkedList<Integer> quantitiesToSell) {
         System.out.println("----------------");
         System.out.println("=== Receipt ===");
-        System.out.println("Order ID: " + orderId);
-        System.out.println("Buyer: " + buyer.getFirstName() + " " + buyer.getLastName());
+
+        displayOrderDetails();
+
         System.out.println("Bike(s) Sold:");
-        for (Bike bike : bikes) {
-            bike.bikeDisplay(); 
+        
+        for (int i = 0; i < bikes.size(); i++) {
+            Bike bike = bikes.get(i);
+            int quantity = quantitiesToSell.get(i);
+
+            // Determine the category of the bike
+            String category;
+            if (bike instanceof FixedGearBikes) {
+                category = "Fixed Gear";
+            } else if (bike instanceof MountainBikes) {
+                category = "Mountain Bike";
+            } else if (bike instanceof RoadBikes) {
+                category = "Road Bike";
+            } else {
+                category = "Unknown";// This will trigger if the object isn't any of the specified subclasses
+            }
+            
+            // Display bike details along with the quantity sold
+            System.out.printf("ID: %-5s | Brand: %-10s | Model: %-8s | Color: %-7s | Frame Material: %-5s | Size: %-5s | Price: $%-8.2f | Quantity Sold: %-5d | Total: $%-8.2f | Category: %-15s\n",
+                              bike.getId(),
+                              bike.getBrand(),
+                              bike.getModel(),
+                              bike.getColor(),
+                              bike.getFrameMaterial(),
+                              bike.getSize(),
+                              bike.getPrice(),
+                              quantity,
+                              bike.getPrice() * quantity,  // Display total price for sold quantity
+                              category);
         }
-        System.out.println("Payment Amount: $" + payment.getpaymentAmount());
-        // Calculate total price using a for-each loop
-        double totalPrice = 0;
-        for (Bike bike : bikes) {
-            totalPrice += bike.getPrice(); // Sum up the prices of all bikes in the order
-        }
-        double change = payment.calculateChange(totalPrice);
+        
+        double totalPrice = Payment.calculateTotalPrice(bikes, quantitiesToSell);
+        System.out.println("--------------------------------------------");
         System.out.println("Total Price: $" + totalPrice);
+        payment.displayPaymentInformation();
+        double change = payment.calculateChange(totalPrice);
         System.out.println("Change: $" + change);
-        System.out.println("Payment Method: " + payment.getPaymentMethod());
-        System.out.println("Payment Date: " + payment.getPaymentDate());
         System.out.println("-------------------------------------------------------------");
     }
 }

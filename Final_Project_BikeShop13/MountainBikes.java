@@ -2,9 +2,8 @@ package Final_Project_BikeShop13;
 
 public class MountainBikes extends Bike {
     
-    public MountainBikes(String id,String brand,String model, String color, String frameMaterial, double price){
-        super(id, brand, model, color, frameMaterial, price);
-        
+    public MountainBikes(String id,String brand,String model, String color, String frameMaterial,String size, double price, int quantity){
+        super(id, brand, model, color, frameMaterial,size, price,quantity);
     }
     
     public void bikeDisplay(String suspension, String tyre){
