@@ -9,6 +9,7 @@ public class MountainBikes extends Bike {
     public void bikeDisplay(String suspension, String tyre){
         System.out.println("--------------------");
         System.out.println("Category: Mountain Bike");
+        super.bikeDisplay();
         System.out.println("Suspension: " + suspension);
         System.out.println("Tyre: " +  tyre);
         System.out.println("--------------------");
