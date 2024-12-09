@@ -3,7 +3,6 @@ package Final_Project_BikeShop13;
 import java.util.Date;
 import java.util.LinkedList;
 
-
 public class Payment {
     private double paymentAmount;
     private String paymentMethod; 

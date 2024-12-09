@@ -1,5 +1,8 @@
 package Final_Project_BikeShop13;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public abstract class Bike {
     private String id;
     private String brand;
@@ -9,6 +12,8 @@ public abstract class Bike {
     private String size;
     private double price;
     private int quantity;
+    private static int counter = 1; 
+    private static Queue<Integer> recycledIds = new LinkedList<>(); 
    
     public Bike(String id,String brand,String model, String color, String frameMaterial,String size, double price, int quantity) {
         this.id = id;
@@ -73,20 +78,23 @@ public abstract class Bike {
         this.quantity = quantity;
     }
 
-
     public void bikeDisplay() {
-        System.out.println("--------------------------------");
-        System.out.println("----Bike Details----");
-        System.out.println("Bike Id: " + this.id);
-		System.out.println("Bike Brand: " + this.brand);
-        System.out.println("Bike Model: " + this.model);
-		System.out.println("Bike color: " + this.color);
-        System.out.println("Bike Material: " + this.frameMaterial);
-        System.out.println("Bike size: " + this.size);
-        System.out.println("Bike price: " + this.price);
-        System.out.println("Bike quantity: " + this.quantity);
-        	
+        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("Bike Id: " + this.id + " | Bike Brand: " + this.brand + " | Bike Model: " + this.model + " | Bike color: " + this.color + " | Bike Material: " + this.frameMaterial + " | Bike size: " + this.size + " | Bike price: " + this.price + " | Bike quantity: " + this.quantity);
 	}
 
-   
+    // Centralized ID generation method
+    protected static String generateId() {
+        if (!recycledIds.isEmpty()) {
+            return "BK" + recycledIds.poll();
+        }
+        return "BK" + counter++;
+    }
+
+    // Centralized method to recycle IDs
+    public static void returnId(String id) {
+        int idNumber = Integer.parseInt(id.substring(2)); 
+        recycledIds.add(idNumber);
+    }
+  
 }

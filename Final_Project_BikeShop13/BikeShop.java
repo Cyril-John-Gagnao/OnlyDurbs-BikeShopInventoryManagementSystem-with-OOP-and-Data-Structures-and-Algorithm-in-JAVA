@@ -1,6 +1,5 @@
 package Final_Project_BikeShop13;
 
-
 public class BikeShop {
     private String name;
     private String address;
@@ -29,8 +28,12 @@ public class BikeShop {
     public void setAddress(String address) {
         this.address = address;
     }
+    
 
-   
+    public void setOwner(BikeShopOwner owner) {
+        this.owner = owner;
+    }
+
     public BikeShopOwner getOwner() {
         return owner;
     }
@@ -39,16 +42,14 @@ public class BikeShop {
         return inventory;
     }
    
-
     public void display() {
         System.out.println("-----------------------");
         System.out.println("DETAILS OF THE BIKESHOP");
 		System.out.println("Name: " + this.name);
 		System.out.println("Address: " + this.address);
-        System.out.println("==== Owner Info =====");
-        owner.display();
+        System.out.println("Owner: " + owner.getFullName());
+        System.out.println("-----------------------");
+        
 	}
-
-    
-    
+   
 }
