@@ -36,14 +36,14 @@ public class Inventory {
    // Find a bike by its ID //sell bike
    public Bike findBikeById(String bikeId) {
     for (Bike bike : bikes) {
-        if (bike.getId().equals(bikeId)) { 
+        if (bike.getId().equalsIgnoreCase(bikeId)) { 
             return bike;
         }
     }
     return null; 
     }
 
-    //bubble sort
+    //bubble sort by bike id
     public void sortBikesById() {
         int n = bikes.size();
         for (int i = 0; i < n - 1; i++) {
@@ -58,6 +58,20 @@ public class Inventory {
         }
     }
 
-    
+    // Bubble sort by bike price
+    public void sortBikesByPrice() {
+        int n = bikes.size();
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (bikes.get(j).getPrice() > bikes.get(j + 1).getPrice()) {
+                    // Swap bikes[j] and bikes[j + 1]
+                    Bike temp = bikes.get(j);
+                    bikes.set(j, bikes.get(j + 1));
+                    bikes.set(j + 1, temp);
+                }
+            }
+        }
+    }  
     
 }
+
