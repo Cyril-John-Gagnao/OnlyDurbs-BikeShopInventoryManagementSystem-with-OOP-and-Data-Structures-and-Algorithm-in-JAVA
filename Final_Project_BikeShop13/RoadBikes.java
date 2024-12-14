@@ -19,7 +19,7 @@ public class RoadBikes extends Bike {
     @Override
     public void bikeDisplay(){
         super.bikeDisplay();
-        System.out.println("Brake Type: " +  brakeType);
+        System.out.println(" | Brake Type: " +  brakeType);
         System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
  

@@ -19,7 +19,7 @@ public class MountainBikes extends Bike {
     @Override
     public void bikeDisplay(){
         super.bikeDisplay();
-        System.out.println("Suspension: " + suspension);
+        System.out.println(" | Suspension: " + suspension);
         System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
   

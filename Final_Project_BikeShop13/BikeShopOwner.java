@@ -8,16 +8,13 @@ public class BikeShopOwner {
     private String contactNo;
     private BikeShop bikeShop;
 
-
     public BikeShopOwner(String firstName, String lastName, String address, String contactNo, BikeShop bikeShop) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
         this.contactNo = contactNo;
-        this.bikeShop = bikeShop;
-     
+        this.bikeShop = bikeShop; 
     }
-
 
     public String getFirstName() {
         return firstName;
@@ -51,7 +48,6 @@ public class BikeShopOwner {
         this.contactNo = contactNo;
     }
 
-
     public String getFullName() {
 		return this.lastName + ", " + this.firstName;
 	}
@@ -64,14 +60,11 @@ public class BikeShopOwner {
         return bikeShop;
     }
 
-
-
     public void display() {
         System.out.println("DETAILS OF THE BIKESHOP OWNER");
 		System.out.println("Owner Name: " + this.getFullName());
 		System.out.println("Owner Address: " + this.address);
 		System.out.println("Owner Contact No: " + this.contactNo);   
 	}
-
-    
+   
 }

@@ -29,7 +29,6 @@ public class BikeShop {
         this.address = address;
     }
     
-
     public void setOwner(BikeShopOwner owner) {
         this.owner = owner;
     }
@@ -41,7 +40,7 @@ public class BikeShop {
     public Inventory getInventory() {
         return inventory;
     }
-   
+
     public void display() {
         System.out.println("-----------------------");
         System.out.println("DETAILS OF THE BIKESHOP");
@@ -51,5 +50,5 @@ public class BikeShop {
         System.out.println("-----------------------");
         
 	}
-   
+
 }

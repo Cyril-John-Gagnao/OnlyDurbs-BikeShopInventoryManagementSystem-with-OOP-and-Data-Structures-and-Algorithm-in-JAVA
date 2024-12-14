@@ -80,7 +80,7 @@ public abstract class Bike {
 
     public void bikeDisplay() {
         System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------");
-        System.out.println("Bike Id: " + this.id + " | Bike Brand: " + this.brand + " | Bike Model: " + this.model + " | Bike color: " + this.color + " | Bike Material: " + this.frameMaterial + " | Bike size: " + this.size + " | Bike price: " + this.price + " | Bike quantity: " + this.quantity);
+        System.out.print("Bike Id: " + this.id + " | Bike Brand: " + this.brand + " | Bike Model: " + this.model + " | Bike color: " + this.color + " | Bike Material: " + this.frameMaterial + " | Bike size: " + this.size + " | Bike price: " + this.price + " | Bike quantity: " + this.quantity);
 	}
 
     // Centralized ID generation method
