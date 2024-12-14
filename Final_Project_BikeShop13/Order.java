@@ -65,7 +65,7 @@ public class Order {
     }
 
     // Method to display the order details
-    public void displayOrderDetails() {
+    public void displayBuyerAndOrderIdDetails() {
         System.out.println("Order ID: " + this.orderId);
         System.out.println("Buyer: " + this.buyer.getFirstName() + " " + this.buyer.getLastName());
     }
@@ -73,14 +73,34 @@ public class Order {
     public void generateReceipt(LinkedList<Integer> quantitiesToSell) {
         System.out.println("-----------------------");
         System.out.println("=== Receipt ===");
+
         bikeShop.display();
-        displayOrderDetails();
+        displayBuyerAndOrderIdDetails();
     
         System.out.println("Bike(s) Sold Details:");
-        
+
+        LinkedList<Bike> uniqueBikes = new LinkedList<>();
+        LinkedList<Integer> totalQuantities = new LinkedList<>();
+
         for (int i = 0; i < bikes.size(); i++) {
-            Bike bike = bikes.get(i);
+            Bike currentBike = bikes.get(i);
             int quantity = quantitiesToSell.get(i);
+
+            // Check if the bike is already in the unique list
+            int index = uniqueBikes.indexOf(currentBike);
+            if (index != -1) {
+                // Bike already exists, update the quantity
+                totalQuantities.set(index, totalQuantities.get(index) + quantity);
+            } else {
+                // New bike, add it to the unique list
+                uniqueBikes.add(currentBike);
+                totalQuantities.add(quantity);
+            }
+        }
+        
+        for (int i = 0; i < uniqueBikes.size(); i++) {
+            Bike bike = uniqueBikes.get(i);
+            int quantity = totalQuantities.get(i);    
     
             // Determine the category and specific attributes of the bike
             String category;
@@ -89,7 +109,7 @@ public class Order {
             if (bike instanceof FixedGearBikes) {
                 category = "Fixed Gear";
                 FixedGearBikes fixedGearBike = (FixedGearBikes) bike;
-                specificAttributes = String.format("Gear Ratio: %s, Brakes: %s",
+                specificAttributes = String.format("Gear type: %s, Brakes: %s",
                         fixedGearBike.getGearType(),
                         fixedGearBike.hasBrakes());
             } else if (bike instanceof MountainBikes) {
@@ -119,7 +139,7 @@ public class Order {
             System.out.println("Specific Attributes: " + specificAttributes);
         }
             
-        double totalPrice = Payment.calculateTotalPrice(bikes, quantitiesToSell);
+        double totalPrice = Payment.calculateTotalPrice(uniqueBikes, totalQuantities);
         System.out.println("--------------------------------------------");
         System.out.println("Total Price for bike(s) sold: $" + totalPrice);
         payment.displayPaymentInformation();
@@ -129,4 +149,5 @@ public class Order {
     }
 
 }
+
 

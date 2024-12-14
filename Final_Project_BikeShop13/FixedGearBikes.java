@@ -29,7 +29,7 @@ public class FixedGearBikes extends Bike {
     @Override
     public void bikeDisplay() {
         super.bikeDisplay(); 
-        System.out.println("Gear: " + gearType + "| Brakes: " + hasBrakes );
+        System.out.println(" | Gear type: " + gearType + "  | has Brakes?: " + hasBrakes );
         System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
 }

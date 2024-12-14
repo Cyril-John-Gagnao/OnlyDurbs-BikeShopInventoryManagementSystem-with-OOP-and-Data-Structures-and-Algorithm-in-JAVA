@@ -12,7 +12,7 @@ public class Payment {
     public Payment(double paymentAmount, String paymentMethod) {
         this.paymentAmount = paymentAmount;
         this.paymentMethod = paymentMethod;
-        this.paymentDate = new Date(); // Use the current date/time as the payment date
+        this.paymentDate = new Date(); 
     }
 
     
@@ -47,26 +47,17 @@ public class Payment {
         System.out.println("Payment Method: " + paymentMethod);
         System.out.println("Payment Date: " + paymentDate);
     }
-
-    // Method to process the payment 
-    public boolean processPayment() {
-        System.out.println("-------------------------------------------------------------");
-        System.out.println("Processing payment amount of $" + paymentAmount + " through " + paymentMethod);
-        return true;  
-    }
-
-   
+  
     public double calculateChange(double bikePrice) {
         if (paymentAmount >= bikePrice) {
             double change = paymentAmount - bikePrice;
             return change;
         } else {
             System.out.println("Insufficient payment. No change can be given.");
-            return 0;  // No change if the payment is insufficient
+            return 0;  
         }
     }
 
-    
     public static double calculateTotalPrice(LinkedList<Bike> bikesToSell, LinkedList<Integer> quantitiesToSell) {
         double totalPrice = 0;
         for (int i = 0; i < bikesToSell.size(); i++) {
