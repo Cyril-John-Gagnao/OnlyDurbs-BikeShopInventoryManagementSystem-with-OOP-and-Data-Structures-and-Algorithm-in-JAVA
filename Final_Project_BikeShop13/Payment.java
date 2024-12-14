@@ -41,7 +41,6 @@ public class Payment {
         this.paymentDate = paymentDate;
     }
 
-    // Method to display payment details
     public void displayPaymentInformation() {
         System.out.println("Payment Amount: $" + paymentAmount);
         System.out.println("Payment Method: " + paymentMethod);

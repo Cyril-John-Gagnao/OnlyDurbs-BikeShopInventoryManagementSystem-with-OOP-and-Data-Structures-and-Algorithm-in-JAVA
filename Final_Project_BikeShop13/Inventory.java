@@ -78,7 +78,6 @@ public class Inventory {
     public void displayAllBikes(String filterCategory) {
         int bikeTotalQuantity = 0;
 
-        // Display header
         System.out.println("----------------------------");
         if (filterCategory == null) {
             System.out.println("All Bikes in Inventory:");

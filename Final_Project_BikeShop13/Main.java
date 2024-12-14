@@ -492,10 +492,10 @@ public class Main {
                                 System.out.print("\nEnter Bike ID to Sell (or type 'exit' to finish): ");
                                 String bikeId = scanner.nextLine().trim().toLowerCase();
 
-                                 // Check if the user wants to exit the sell menu (case-insensitive)
+                                
                                 if (bikeId.equalsIgnoreCase("exit")) {
-                                    sellingMore = false; // Stop this loop
-                                    break; // Exit the loop and return to the previous menu
+                                    sellingMore = false; 
+                                    break; 
                                 }
 
                                 Bike bikeIdToSell = owner.getBikeShop().getInventory().findBikeById(bikeId);
@@ -620,7 +620,7 @@ public class Main {
                                         throw new IllegalArgumentException("Invalid Payment Method. Please enter 'cash' or 'card'.");
                                     }
 
-                                    validPaymentMethodInput = true; // Input is valid
+                                    validPaymentMethodInput = true; 
                                 } catch (IllegalArgumentException e) {
                                     System.out.println(e.getMessage());
                                 }
@@ -672,15 +672,13 @@ public class Main {
 
                             owner.getBikeShop().getInventory().sortBikesById();
                             owner.getBikeShop().getInventory().displayAllBikes(null);
-                            // Update bike logic
-
+                            
                             System.out.print("\nEnter the Bike ID to update (or type exit to finish): ");
                             String bikeIdToUpdate = scanner.nextLine().trim().toLowerCase();
 
-                             // Check if the user wants to exit the update menu (case-insensitive)
                              if (bikeIdToUpdate.equalsIgnoreCase("exit")) {
-                                updateABike = false; // Stop this loop
-                                break; // Exit the loop and return to the previous menu
+                                updateABike = false; 
+                                break;
                             }
                     
                             Bike bikeToUpdate = owner.getBikeShop().getInventory().findBikeById(bikeIdToUpdate);
@@ -705,25 +703,25 @@ public class Main {
 
                                         switch (updateChoice) {
                                             case 1:
-                                                double newPrice = 0.0; // Initialize newPrice
+                                                double newPrice = 0.0;
 
-                                                boolean validPriceInput = false; // Flag for valid input
+                                                boolean validPriceInput = false; 
                                                 do {
                                                     System.out.print("Enter the new price: ");
-                                                    if (scanner.hasNextDouble()) { // Check if the input is a valid double
+                                                    if (scanner.hasNextDouble()) { 
                                                         newPrice = scanner.nextDouble();
-                                                        scanner.nextLine(); // Consume the newline character
+                                                        scanner.nextLine(); 
                                             
                                                         if (newPrice <= 0) {
                                                             System.out.println("Invalid price. Price must be greater than 0.");
                                                         } else {
-                                                            validPriceInput = true; // Exit the loop on valid input
+                                                            validPriceInput = true; 
                                                         }
                                                     } else {
                                                         System.out.println("Invalid input. Please enter a valid number for the price.");
-                                                        scanner.nextLine(); // Consume the invalid input
+                                                        scanner.nextLine(); 
                                                     }
-                                                } while (!validPriceInput); // Continue until valid input is received
+                                                } while (!validPriceInput); 
                                             
                                                 bikeToUpdate.setPrice(newPrice);
                                                 System.out.println("Price updated successfully. Current Price: " + bikeToUpdate.getPrice());
@@ -735,15 +733,15 @@ public class Main {
                                                 
                                                 do {
                                                     System.out.print("Enter the quantity to add: ");
-                                                    String input = scanner.nextLine().trim(); // Read input as a string and trim whitespace
+                                                    String input = scanner.nextLine().trim(); 
                                                 
                                                     try {
-                                                        quantityToAdd = Integer.parseInt(input); // Attempt to parse as an integer
+                                                        quantityToAdd = Integer.parseInt(input); 
                                                 
                                                         if (quantityToAdd <= 0) {
                                                             System.out.println("Invalid quantity. Quantity must be greater than 0.");
                                                         } else {
-                                                            validQuantityInput = true; // Exit the loop on valid input
+                                                            validQuantityInput = true; 
                                                         }
                                                     } catch (NumberFormatException e) {
                                                         System.out.println("Invalid input. Please enter a valid integer for the quantity.");
