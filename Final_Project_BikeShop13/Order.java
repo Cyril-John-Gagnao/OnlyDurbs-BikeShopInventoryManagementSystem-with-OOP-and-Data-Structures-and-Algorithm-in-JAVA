@@ -58,13 +58,11 @@ public class Order {
         this.bikeShop = bikeShop;
     }
 
-    // Method to generate a unique order ID
     private static String generateOrderId() {
         orderCounter++; 
         return "ORD" + orderCounter; 
     }
 
-    // Method to display the order details
     public void displayBuyerAndOrderIdDetails() {
         System.out.println("Order ID: " + this.orderId);
         System.out.println("Buyer: " + this.buyer.getFirstName() + " " + this.buyer.getLastName());
@@ -102,7 +100,6 @@ public class Order {
             Bike bike = uniqueBikes.get(i);
             int quantity = totalQuantities.get(i);    
     
-            // Determine the category and specific attributes of the bike
             String category;
             String specificAttributes = "";
     

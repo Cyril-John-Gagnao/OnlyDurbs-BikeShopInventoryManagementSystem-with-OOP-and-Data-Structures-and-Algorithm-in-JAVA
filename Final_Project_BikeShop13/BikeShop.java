@@ -9,7 +9,7 @@ public class BikeShop {
     public BikeShop(String name, String address,Inventory inventory, BikeShopOwner owner) {
         this.name = name;
         this.address = address;
-        this.inventory = inventory; // Initialize inventory
+        this.inventory = inventory; 
         this.owner = owner; 
     }
 
