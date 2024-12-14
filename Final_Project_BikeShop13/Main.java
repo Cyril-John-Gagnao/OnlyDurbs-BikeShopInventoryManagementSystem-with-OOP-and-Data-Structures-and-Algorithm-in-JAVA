@@ -388,6 +388,7 @@ public class Main {
                                             bikeToRemove.setQuantity(updatedQuantity); // Update the quantity in the bike object
 
                                             if (updatedQuantity == 0) {
+                                                
                                                 Bike.returnId(bikeToRemove.getId());
 
                                                 owner.getBikeShop().getInventory().removeBikeFromInventory(bikeToRemove);
