@@ -48,9 +48,8 @@ public class Inventory {
         int n = bikes.size();
         for (int firstId = 0; firstId < n - 1; firstId++) {
             for (int nextId = 0; nextId < n - firstId - 1; nextId++) {
-                // Extract numeric part of the bike ID for comparison
-                int id1 = Integer.parseInt(bikes.get(nextId).getId().substring(2)); // Get numeric part of first ID
-                int id2 = Integer.parseInt(bikes.get(nextId + 1).getId().substring(2)); // Get numeric part of second ID
+                int id1 = Integer.parseInt(bikes.get(nextId).getId().substring(2));
+                int id2 = Integer.parseInt(bikes.get(nextId + 1).getId().substring(2)); 
                 
                 if (id1 > id2) {
                     // Swap bikes[nextId] and bikes[nextId + 1]
