@@ -83,7 +83,6 @@ public abstract class Bike {
         System.out.print("Bike Id: " + this.id + " | Bike Brand: " + this.brand + " | Bike Model: " + this.model + " | Bike color: " + this.color + " | Bike Material: " + this.frameMaterial + " | Bike size: " + this.size + " | Bike price: " + this.price + " | Bike quantity: " + this.quantity);
 	}
 
-    // Centralized ID generation method
     protected static String generateId() {
         if (!recycledIds.isEmpty()) {
             return "BK" + recycledIds.poll();
@@ -91,7 +90,6 @@ public abstract class Bike {
         return "BK" + counter++;
     }
 
-    // Centralized method to recycle IDs
     public static void returnId(String id) {
         int idNumber = Integer.parseInt(id.substring(2)); 
         recycledIds.add(idNumber);

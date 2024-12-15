@@ -203,7 +203,6 @@ public class Inventory {
         int totalMountainBikes = 0;
         int totalRoadBikes = 0;
     
-        // Calculate totals for each category
         for (Bike bike : bikes) {
             totalBikes += bike.getQuantity();
             if (bike instanceof FixedGearBikes) {
@@ -215,7 +214,6 @@ public class Inventory {
             }
         }
     
-        // Display inventory name and total number of bikes only for "all"
         if (category.equalsIgnoreCase("all")) {
             System.out.println("------------------------------------");
             System.out.println("Inventory Name: " + inventoryName);
@@ -239,14 +237,14 @@ public class Inventory {
                 System.out.println("Invalid category. Please specify 'all', 'fixed gear', 'mountain', or 'road'.");
         }
         
-        return result; // Return the total for the specified category
+        return result;
     }
 
     public void updateQuantities(LinkedList<Bike> bikesToSell, LinkedList<Integer> quantitiesToSell) {
         for (int i = 0; i < bikesToSell.size(); i++) {
             Bike bike = bikesToSell.get(i);
             int quantity = quantitiesToSell.get(i);
-            bike.setQuantity(bike.getQuantity() + quantity); // Revert quantity
+            bike.setQuantity(bike.getQuantity() + quantity); 
         }
     }
 }
