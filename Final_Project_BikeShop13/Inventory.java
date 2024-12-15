@@ -48,9 +48,8 @@ public class Inventory {
         int n = bikes.size();
         for (int firstId = 0; firstId < n - 1; firstId++) {
             for (int nextId = 0; nextId < n - firstId - 1; nextId++) {
-                // Extract numeric part of the bike ID for comparison
-                int id1 = Integer.parseInt(bikes.get(nextId).getId().substring(2)); // Get numeric part of first ID
-                int id2 = Integer.parseInt(bikes.get(nextId + 1).getId().substring(2)); // Get numeric part of second ID
+                int id1 = Integer.parseInt(bikes.get(nextId).getId().substring(2));
+                int id2 = Integer.parseInt(bikes.get(nextId + 1).getId().substring(2)); 
                 
                 if (id1 > id2) {
                     // Swap bikes[nextId] and bikes[nextId + 1]
@@ -77,7 +76,6 @@ public class Inventory {
         }
     }
     
-  
     // Method to display all bikes in inventory with optional category filtering
     public void displayAllBikes(String filterCategory) {
         int bikeTotalQuantity = 0;
@@ -205,7 +203,6 @@ public class Inventory {
         int totalMountainBikes = 0;
         int totalRoadBikes = 0;
     
-        // Calculate totals for each category
         for (Bike bike : bikes) {
             totalBikes += bike.getQuantity();
             if (bike instanceof FixedGearBikes) {
@@ -217,7 +214,6 @@ public class Inventory {
             }
         }
     
-        // Display inventory name and total number of bikes only for "all"
         if (category.equalsIgnoreCase("all")) {
             System.out.println("------------------------------------");
             System.out.println("Inventory Name: " + inventoryName);
@@ -241,14 +237,14 @@ public class Inventory {
                 System.out.println("Invalid category. Please specify 'all', 'fixed gear', 'mountain', or 'road'.");
         }
         
-        return result; // Return the total for the specified category
+        return result;
     }
 
     public void updateQuantities(LinkedList<Bike> bikesToSell, LinkedList<Integer> quantitiesToSell) {
         for (int i = 0; i < bikesToSell.size(); i++) {
             Bike bike = bikesToSell.get(i);
             int quantity = quantitiesToSell.get(i);
-            bike.setQuantity(bike.getQuantity() + quantity); // Revert quantity
+            bike.setQuantity(bike.getQuantity() + quantity); 
         }
     }
 }

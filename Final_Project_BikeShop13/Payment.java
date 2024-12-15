@@ -62,7 +62,7 @@ public class Payment {
         for (int i = 0; i < bikesToSell.size(); i++) {
             Bike bike = bikesToSell.get(i);
             int quantity = quantitiesToSell.get(i);
-            totalPrice += bike.getPrice() * quantity; // Multiply price by quantity
+            totalPrice += bike.getPrice() * quantity; 
         }
         return totalPrice;
     }
