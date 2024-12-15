@@ -76,7 +76,6 @@ public class Inventory {
         }
     }
     
-  
     // Method to display all bikes in inventory with optional category filtering
     public void displayAllBikes(String filterCategory) {
         int bikeTotalQuantity = 0;
