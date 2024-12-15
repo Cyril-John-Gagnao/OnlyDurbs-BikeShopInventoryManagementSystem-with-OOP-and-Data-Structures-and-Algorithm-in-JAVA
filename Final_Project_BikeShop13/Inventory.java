@@ -46,16 +46,16 @@ public class Inventory {
     // Bubble sort by bike ID
     public void sortBikesById() {
         int n = bikes.size();
-        for (int firstId = 0; firstId < n - 1; firstId++) {
-            for (int nextId = 0; nextId < n - firstId - 1; nextId++) {
-                int id1 = Integer.parseInt(bikes.get(nextId).getId().substring(2));
-                int id2 = Integer.parseInt(bikes.get(nextId + 1).getId().substring(2)); 
+        for (int firstIdIndex = 0; firstIdIndex < n - 1; firstIdIndex++) {
+            for (int nextIdIndex = 0; nextIdIndex < n - firstIdIndex - 1; nextIdIndex++) {
+                int id1 = Integer.parseInt(bikes.get(nextIdIndex).getId().substring(2));
+                int id2 = Integer.parseInt(bikes.get(nextIdIndex + 1).getId().substring(2)); 
                 
                 if (id1 > id2) {
-                    // Swap bikes[nextId] and bikes[nextId + 1]
-                    Bike bikeIdSwap = bikes.get(nextId); 
-                    bikes.set(nextId, bikes.get(nextId + 1));
-                    bikes.set(nextId + 1, bikeIdSwap);
+                    // Swap bikes[nextIdIndex] and bikes[nextIdInedx + 1]
+                    Bike bikeIdSwap = bikes.get(nextIdIndex); 
+                    bikes.set(nextIdIndex, bikes.get(nextIdIndex + 1));
+                    bikes.set(nextIdIndex + 1, bikeIdSwap);
                 }
             }
         }
@@ -64,13 +64,13 @@ public class Inventory {
     // Bubble sort by bike price
     public void sortBikesByPrice() {
         int n = bikes.size();
-        for (int firstPrice = 0; firstPrice < n - 1; firstPrice++) {
-            for (int nextPrice = 0; nextPrice < n - firstPrice - 1; nextPrice++) {
-                if (bikes.get(nextPrice).getPrice() > bikes.get(nextPrice + 1).getPrice()) {
-                    // Swap bikes[nextPrice] and bikes[nextPrice + 1]
-                    Bike bikePriceSwap = bikes.get(nextPrice);
-                    bikes.set(nextPrice, bikes.get(nextPrice + 1));
-                    bikes.set(nextPrice + 1, bikePriceSwap);
+        for (int firstPriceIndex = 0;  firstPriceIndex < n - 1;  firstPriceIndex++) {
+            for (int nextPriceIndex = 0; nextPriceIndex < n -  firstPriceIndex - 1; nextPriceIndex++) {
+                if (bikes.get(nextPriceIndex).getPrice() > bikes.get(nextPriceIndex + 1).getPrice()) {
+                    // Swap bikes[nextPriceIndex] and bikes[nextPriceIndex + 1]
+                    Bike bikePriceSwap = bikes.get(nextPriceIndex);
+                    bikes.set(nextPriceIndex, bikes.get(nextPriceIndex + 1));
+                    bikes.set(nextPriceIndex + 1, bikePriceSwap);
                 }
             }
         }
