@@ -478,10 +478,35 @@ public class Main {
                             owner.getBikeShop().getInventory().sortBikesById();
                             owner.getBikeShop().getInventory().displayAllBikes(null);
                         
-                            System.out.print("Enter Buyer's First Name: ");
-                            String firstName = scanner.nextLine().trim();
-                            System.out.print("Enter Buyer's Last Name: ");
-                            String lastName = scanner.nextLine().trim();
+                            String firstName = "";
+                            boolean validFirstName = false;
+                            do {
+                                try {
+                                    System.out.print("Enter Buyer's First Name: ");
+                                    firstName = scanner.nextLine().trim();
+                                    if (firstName.isEmpty()) {
+                                        throw new IllegalArgumentException("First name cannot be empty.");
+                                    }
+                                    validFirstName = true;
+                                } catch (IllegalArgumentException e) {
+                                    System.out.println(e.getMessage());
+                                }
+                            } while (!validFirstName);
+
+                            String lastName = "";
+                            boolean validLastName = false;
+                            do {
+                                try {
+                                    System.out.print("Enter Buyer's Last Name: ");
+                                    lastName = scanner.nextLine().trim(); // Use the existing 'lastName' variable
+                                    if (lastName.isEmpty()) {
+                                        throw new IllegalArgumentException("Last name cannot be empty.");
+                                    }
+                                    validLastName = true;
+                                } catch (IllegalArgumentException e) {
+                                    System.out.println(e.getMessage());
+                                }
+                            } while (!validLastName);
                         
                             Buyer buyer = new Buyer(firstName, lastName);
                         
