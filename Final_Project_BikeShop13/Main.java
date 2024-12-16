@@ -432,7 +432,7 @@ public class Main {
                                 int displayTypeChoice = Integer.parseInt(scanner.nextLine());
                                 
                                 if (displayTypeChoice < 1 || displayTypeChoice > 6) {
-                                    System.out.println("Invalid choice. Please select a number between 1 and 5.");
+                                    System.out.println("Invalid choice. Please select a number between 1 and 6.");
                                     continue;
                                 }
 
